@@ -1,26 +1,24 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main () {
+int main(void) {
+    int numero;
+    long long soma = 0;   // aguenta somas maiores
+    int contador = 0;
 
-    int n1, n2, n3, n4;
-    float media;
+    printf("Digite um numero (0 para sair): ");
+    while (scanf("%d", &numero) == 1 && numero != 0) {
+        if (numero % 2 == 0) {   // considera apenas pares (positivos ou negativos)
+            soma += numero;
+            contador++;
+        }
+        printf("Digite um numero (0 para sair): ");
+    }
 
-    printf("digite o primeiro numero:");
-    scanf ("%d", &n1);
-
-    printf("digite o segundo numero:");
-    scanf ("%d", &n2);
-
-    printf("digite o terceiro numero:");
-    scanf ("%d", &n3);
-
-    printf("digite o quarto numero:");
-    scanf ("%d", &n4);
-
-    media = n1 + n2 + n3 + n4 / 4;
-
-    printf("a media é: %f", media);
-
+    if (contador > 0) {
+        double media = (double)soma / (double)contador;  // evita divisao inteira
+        printf("A media dos numeros pares e: %.2f\n", media);
+    } else {
+        printf("Nenhum numero par foi digitado.\n");
+    }
     return 0;
 }

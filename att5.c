@@ -1,19 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main () {
+int main() {
+    int valor; 
+    int menor_valor;
+    int maior_valor;
 
-    int n1, n2, resultado;
+    // Lê o primeiro valor
+    printf("Digite o valor 1: ");
+    scanf("%d", &valor);
 
-    printf("tamanho da base: ");
-    scanf ("%d", &n1);
-    
-    printf("tamanho da lateral: ");
-    scanf ("%d", &n2);
+    // Inicializa menor e maior com o primeiro valor
+    menor_valor = valor;
+    maior_valor = valor;
 
-    resultado = n1 * n2;
+    // Agora lê os próximos 49 valores
+    for (int c = 2; c <= 50; c++) {
+        printf("%d|", c);
 
-    printf("resultado: %d", resultado);
+        if (c > maior_valor) {
+            maior_valor = c;
+        }
+        if (c < menor_valor) {
+            menor_valor = c;
+        }
+    }
+
+    printf("\nO maior valor é %d e o menor valor é %d\n", maior_valor, menor_valor);
 
     return 0;
 }
